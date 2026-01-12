@@ -9,6 +9,9 @@ httpx==0.26.0
 # Environment Management
 python-dotenv==1.0.0
 
+# Caching (optional for free tier)
+redis==5.0.1
+
 # Data Processing
 python-dateutil==2.8.2
 
