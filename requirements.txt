@@ -16,7 +16,7 @@ redis==5.0.1
 python-dateutil==2.8.2
 
 # Database (SQLite for free tier, optional)
-sqlalchemy[asyncio]==2.0.23
+sqlalchemy[asyncio]==2.0.36
 aiosqlite==0.19.0
 
 # Performance & Security
