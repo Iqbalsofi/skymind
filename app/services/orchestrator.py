@@ -14,6 +14,7 @@ from app.core.normalize import ItineraryNormalizer
 from app.core.dedupe import ItineraryDeduplicator
 from app.core.scoring import ItineraryRanker, get_category_winners
 from app.core.cache import cache_manager
+from app.providers.amadeus import AmadeusProvider
 
 
 class SearchOrchestrator:
@@ -22,10 +23,14 @@ class SearchOrchestrator:
     Pipeline: Cache Check → Provider Calls → Normalization → Deduplication → Ranking → Cache Store
     """
     
+
     def __init__(self):
         self.normalizer = ItineraryNormalizer()
         self.deduplicator = ItineraryDeduplicator()
         self.sample_data_path = Path(__file__).parent.parent.parent / "data" / "sample_itineraries.json"
+        
+        # Initialize providers (Phase 2)
+        self.amadeus = AmadeusProvider()
     
     async def search(self, intent: SearchIntent) -> tuple[List[Itinerary], bool]:
         """
@@ -38,7 +43,14 @@ class SearchOrchestrator:
             return cached_results, True
         
         # Step 2: Cache miss - fetch fresh results
-        raw_itineraries = await self._fetch_results(intent)
+        # Phase 2: Switch to Real API if configured
+        if self.amadeus.client_id:
+            raw_itineraries = await self.amadeus.search(intent)
+            # Fallback to mock if API fails or returns no results (optional safety)
+            if not raw_itineraries:
+                raw_itineraries = await self._fetch_results(intent)
+        else:
+            raw_itineraries = await self._fetch_results(intent)
         
         # Step 3: Normalize
         normalized = [self.normalizer.normalize(itin) for itin in raw_itineraries]

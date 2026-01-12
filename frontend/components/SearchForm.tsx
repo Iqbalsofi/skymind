@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import AirportInput from './AirportInput'
 
 interface SearchFormProps {
     onSearch: (data: any) => void
@@ -30,30 +31,22 @@ export default function SearchForm({ onSearch, loading }: SearchFormProps) {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-12">
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 {/* Origin */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        From
-                    </label>
-                    <input
-                        type="text"
+                <div className="lg:col-span-3">
+                    <AirportInput
+                        label="From"
                         value={formData.origins[0]}
-                        onChange={(e) => setFormData({ ...formData, origins: [e.target.value] })}
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                        placeholder="JFK"
+                        onChange={(val: string) => setFormData({ ...formData, origins: [val] })}
+                        placeholder="City or Airport"
                     />
                 </div>
 
                 {/* Destination */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        To
-                    </label>
-                    <input
-                        type="text"
+                <div className="lg:col-span-3">
+                    <AirportInput
+                        label="To"
                         value={formData.destinations[0]}
-                        onChange={(e) => setFormData({ ...formData, destinations: [e.target.value] })}
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                        placeholder="LAX"
+                        onChange={(val: string) => setFormData({ ...formData, destinations: [val] })}
+                        placeholder="City or Airport"
                     />
                 </div>
 
@@ -108,8 +101,8 @@ export default function SearchForm({ onSearch, loading }: SearchFormProps) {
                         type="button"
                         onClick={() => setFormData({ ...formData, priority })}
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${formData.priority === priority
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                             }`}
                     >
                         {priority.charAt(0).toUpperCase() + priority.slice(1)}
