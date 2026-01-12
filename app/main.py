@@ -10,8 +10,6 @@ from fastapi.responses import JSONResponse
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
-import sentry_sdk
-from sentry_sdk.integrations.fastapi import FastApiIntegration
 import os
 import time
 
@@ -19,14 +17,20 @@ from app.api import routes
 from app.core.cache import cache_manager
 from app.core.database import init_db
 
-# Initialize Sentry for error tracking (optional)
-if os.getenv("SENTRY_DSN"):
-    sentry_sdk.init(
-        dsn=os.getenv("SENTRY_DSN"),
-        integrations=[FastApiIntegration()],
-        traces_sample_rate=0.1,
-        environment=os.getenv("ENV", "development"),
-    )
+# Initialize Sentry for error tracking (optional - only if installed)
+try:
+    import sentry_sdk
+    from sentry_sdk.integrations.fastapi import FastApiIntegration
+    
+    if os.getenv("SENTRY_DSN"):
+        sentry_sdk.init(
+            dsn=os.getenv("SENTRY_DSN"),
+            integrations=[FastApiIntegration()],
+            traces_sample_rate=0.1,
+            environment=os.getenv("ENV", "development"),
+        )
+except ImportError:
+    print("⚠️  Sentry SDK not installed - error tracking disabled")
 
 # Rate limiter
 limiter = Limiter(key_func=get_remote_address)
