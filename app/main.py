@@ -6,7 +6,8 @@ Main FastAPI application with production optimizations
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -103,23 +104,23 @@ async def shutdown_event():
 app.include_router(routes.router)
 
 
+# Serve static assets (JS, CSS, images)
+# We mount this at /_next to handle Next.js assets
+app.mount("/_next", StaticFiles(directory="app/static/_next"), name="next")
+
+
 @app.get("/")
 async def root():
-    """Root endpoint"""
-    return {
-        "name": "SkyMind",
-        "tagline": "Skyscanner shows flights. We ship decisions.",
-        "version": "0.2.0",
-        "docs": "/docs",
-        "why_better": [
-            "🎯 Intelligent ranking with multi-objective optimization",
-            "💡 Human-readable explanations for every decision",
-            "⚠️ Automatic risk detection (tight connections, red-eyes, etc.)",
-            "📊 Tradeoff analysis showing price vs time options",
-            "🚀 10-20x faster with smart caching",
-            "🔍 Transparent scoring breakdown"
-        ]
-    }
+    """Serve the frontend application"""
+    return FileResponse("app/static/index.html")
+
+
+@app.exception_handler(404)
+async def not_found(request, exc):
+    """Fallback for SPA routing - serve index.html for unknown routes"""
+    if request.url.path.startswith("/api"):
+        return JSONResponse(status_code=404, content={"detail": "API endpoint not found"})
+    return FileResponse("app/static/index.html")
 
 
 @app.get("/health")
