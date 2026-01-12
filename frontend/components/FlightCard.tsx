@@ -91,7 +91,7 @@ export default function FlightCard({ itinerary, rank }: FlightCardProps) {
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
                     <div>
                         <div className="text-3xl font-bold text-gray-900 dark:text-white">
-                            ${itinerary.price.total.toFixed(2)}
+                            ${itinerary.price?.total_usd?.toFixed(2) || '0.00'}
                         </div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">
                             {itinerary.price.currency}
