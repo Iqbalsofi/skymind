@@ -1,23 +1,23 @@
-# Core Framework - minimal setup for Render free tier
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
+# Core Framework - Python 3.13 compatible versions
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
 pydantic==2.10.4
 
 # Async HTTP Client
-httpx==0.26.0
+httpx==0.28.1
 
 # Environment Management
-python-dotenv==1.0.0
+python-dotenv==1.0.1
 
-# Caching (optional for free tier)
-redis==5.0.1
+# Caching (optional - gracefully disabled if not available)
+redis==5.2.1
 
 # Data Processing
-python-dateutil==2.8.2
+python-dateutil==2.9.0
 
-# Database (SQLite for free tier, optional)
+# Database (optional - gracefully disabled if not available)
 sqlalchemy[asyncio]==2.0.36
-aiosqlite==0.19.0
+aiosqlite==0.20.0
 
 # Performance & Security
 slowapi==0.1.9
