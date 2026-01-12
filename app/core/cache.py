@@ -7,10 +7,17 @@ import json
 import hashlib
 from typing import Optional, List, Any
 from datetime import datetime, timedelta
-import redis.asyncio as redis
 import os
 
 from app.core.schema import Itinerary, SearchIntent
+
+# Try to import Redis - if not available, caching will be disabled
+try:
+    import redis.asyncio as redis
+    REDIS_AVAILABLE = True
+except ImportError:
+    REDIS_AVAILABLE = False
+    print("⚠️  Redis library not installed - caching disabled")
 
 
 class CacheManager:
@@ -24,9 +31,10 @@ class CacheManager:
     
     def __init__(self):
         redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
-        self.redis_client: Optional[redis.Redis] = None
+        self.redis_client: Optional[Any] = None
         self.redis_url = redis_url
-        self.enabled = os.getenv("CACHE_ENABLED", "true").lower() == "true"
+        cache_enabled = os.getenv("CACHE_ENABLED", "true").lower() == "true"
+        self.enabled = cache_enabled and REDIS_AVAILABLE
     
     async def connect(self):
         """Connect to Redis"""
