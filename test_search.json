@@ -1,0 +1,12 @@
+{
+    "origins": [
+        "JFK"
+    ],
+    "destinations": [
+        "LAX"
+    ],
+    "departure_date": "2024-06-15T00:00:00",
+    "cabin_class": "economy",
+    "num_travelers": 1,
+    "priority": "balanced"
+}
