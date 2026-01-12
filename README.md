@@ -144,7 +144,7 @@ graph TB
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/skymind.git
+git clone https://github.com/Iqbalsofi/skymind.git
 cd skymind
 
 # Create virtual environment
@@ -383,8 +383,8 @@ MIT License - See [LICENSE](LICENSE) for details
 
 ## 📞 Contact
 
-- **GitHub**: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- **Project**: [SkyMind](https://github.com/YOUR_USERNAME/skymind)
+- **GitHub**: [@Iqbalsofi](https://github.com/Iqbalsofi)
+- **Project**: [SkyMind](https://github.com/Iqbalsofi/skymind)
 - **Live Demo**: [skymind.onrender.com](https://skymind.onrender.com) (coming soon)
 
 ---

@@ -41,7 +41,7 @@ Thank you for considering contributing to SkyMind! We welcome contributions from
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/skymind.git
+git clone https://github.com/Iqbalsofi/skymind.git
 cd skymind
 
 # Create virtual environment
