@@ -1,9 +1,9 @@
 [
     {
-        "itinerary_id": "itin_001",
+        "itinerary_id": "itin_jfk_lax_001",
         "legs": [
             {
-                "leg_id": "leg_001_1",
+                "leg_id": "leg_1",
                 "origin": {
                     "code": "JFK",
                     "name": "John F Kennedy Intl",
@@ -16,8 +16,8 @@
                     "city": "Los Angeles",
                     "country": "USA"
                 },
-                "departure_time": "2024-06-15T08:00:00",
-                "arrival_time": "2024-06-15T11:30:00",
+                "departure_time": "2026-06-15T08:00:00",
+                "arrival_time": "2026-06-15T11:30:00",
                 "duration_minutes": 330,
                 "airline": "American Airlines",
                 "airline_code": "AA",
@@ -30,47 +30,25 @@
         "total_duration_minutes": 330,
         "is_direct": true,
         "price": {
-            "base_fare_usd": 250.0,
-            "taxes_usd": 45.0,
-            "fees_usd": 8.0,
-            "total_usd": 303.0,
-            "num_travelers": 1
-        },
-        "baggage": [
-            {
-                "type": "carry_on",
-                "quantity": 1,
-                "included": true
-            },
-            {
-                "type": "checked",
-                "quantity": 1,
-                "included": false,
-                "price_usd": 35.0
-            }
-        ],
-        "fare_rules": {
-            "changeable": false,
-            "refundable": false
+            "base_fare_usd": 350.0,
+            "taxes_usd": 50.0,
+            "total_usd": 400.0,
+            "currency": "USD"
         },
         "risk_flags": [],
-        "signals": {
-            "on_time_proxy": 0.85
-        },
         "provider": {
             "provider_name": "Amadeus",
-            "provider_id": "amd_001",
-            "deeplink": "https://booking.amadeus.com/itin_001",
-            "last_updated": "2024-06-01T10:00:00",
-            "trust_score": 0.95,
-            "notes": []
+            "provider_id": "amd_1",
+            "deeplink": "https://example.com/book",
+            "last_updated": "2026-06-01T10:00:00",
+            "trust_score": 0.95
         }
     },
     {
-        "itinerary_id": "itin_002",
+        "itinerary_id": "itin_jfk_lhr_001",
         "legs": [
             {
-                "leg_id": "leg_002_1",
+                "leg_id": "leg_lhr_1",
                 "origin": {
                     "code": "JFK",
                     "name": "John F Kennedy Intl",
@@ -78,275 +56,44 @@
                     "country": "USA"
                 },
                 "destination": {
-                    "code": "ORD",
-                    "name": "O'Hare Intl",
-                    "city": "Chicago",
-                    "country": "USA"
+                    "code": "LHR",
+                    "name": "London Heathrow",
+                    "city": "London",
+                    "country": "UK"
                 },
-                "departure_time": "2024-06-15T06:30:00",
-                "arrival_time": "2024-06-15T08:00:00",
-                "duration_minutes": 150,
-                "airline": "United Airlines",
-                "airline_code": "UA",
-                "flight_number": "UA456",
-                "cabin_class": "economy"
-            },
-            {
-                "leg_id": "leg_002_2",
-                "origin": {
-                    "code": "ORD",
-                    "name": "O'Hare Intl",
-                    "city": "Chicago",
-                    "country": "USA"
-                },
-                "destination": {
-                    "code": "LAX",
-                    "name": "Los Angeles Intl",
-                    "city": "Los Angeles",
-                    "country": "USA"
-                },
-                "departure_time": "2024-06-15T10:15:00",
-                "arrival_time": "2024-06-15T12:45:00",
-                "duration_minutes": 270,
-                "airline": "United Airlines",
-                "airline_code": "UA",
-                "flight_number": "UA789",
-                "cabin_class": "economy"
-            }
-        ],
-        "layovers": [
-            {
-                "airport": {
-                    "code": "ORD",
-                    "name": "O'Hare Intl",
-                    "city": "Chicago",
-                    "country": "USA"
-                },
-                "duration_minutes": 135,
-                "overnight": false,
-                "airport_change": false
-            }
-        ],
-        "num_stops": 1,
-        "total_duration_minutes": 555,
-        "is_direct": false,
-        "price": {
-            "base_fare_usd": 180.0,
-            "taxes_usd": 35.0,
-            "fees_usd": 5.0,
-            "total_usd": 220.0,
-            "num_travelers": 1
-        },
-        "baggage": [
-            {
-                "type": "carry_on",
-                "quantity": 1,
-                "included": true
-            },
-            {
-                "type": "checked",
-                "quantity": 1,
-                "included": true
-            }
-        ],
-        "fare_rules": {
-            "changeable": true,
-            "change_fee_usd": 75.0,
-            "refundable": false
-        },
-        "risk_flags": [],
-        "signals": {
-            "on_time_proxy": 0.78
-        },
-        "provider": {
-            "provider_name": "Duffel",
-            "provider_id": "duf_002",
-            "deeplink": "https://booking.duffel.com/itin_002",
-            "last_updated": "2024-06-01T10:05:00",
-            "trust_score": 0.92,
-            "notes": []
-        }
-    },
-    {
-        "itinerary_id": "itin_003",
-        "legs": [
-            {
-                "leg_id": "leg_003_1",
-                "origin": {
-                    "code": "JFK",
-                    "name": "John F Kennedy Intl",
-                    "city": "New York",
-                    "country": "USA"
-                },
-                "destination": {
-                    "code": "DEN",
-                    "name": "Denver Intl",
-                    "city": "Denver",
-                    "country": "USA"
-                },
-                "departure_time": "2024-06-15T14:00:00",
-                "arrival_time": "2024-06-15T16:30:00",
-                "duration_minutes": 210,
-                "airline": "Frontier Airlines",
-                "airline_code": "F9",
-                "flight_number": "F9111",
-                "cabin_class": "economy"
-            },
-            {
-                "leg_id": "leg_003_2",
-                "origin": {
-                    "code": "DEN",
-                    "name": "Denver Intl",
-                    "city": "Denver",
-                    "country": "USA"
-                },
-                "destination": {
-                    "code": "LAX",
-                    "name": "Los Angeles Intl",
-                    "city": "Los Angeles",
-                    "country": "USA"
-                },
-                "departure_time": "2024-06-15T22:00:00",
-                "arrival_time": "2024-06-15T23:30:00",
-                "duration_minutes": 150,
-                "airline": "Frontier Airlines",
-                "airline_code": "F9",
-                "flight_number": "F9222",
-                "cabin_class": "economy"
-            }
-        ],
-        "layovers": [
-            {
-                "airport": {
-                    "code": "DEN",
-                    "name": "Denver Intl",
-                    "city": "Denver",
-                    "country": "USA"
-                },
-                "duration_minutes": 330,
-                "overnight": false,
-                "airport_change": false
-            }
-        ],
-        "num_stops": 1,
-        "total_duration_minutes": 690,
-        "is_direct": false,
-        "price": {
-            "base_fare_usd": 140.0,
-            "taxes_usd": 25.0,
-            "fees_usd": 10.0,
-            "total_usd": 175.0,
-            "num_travelers": 1
-        },
-        "baggage": [
-            {
-                "type": "personal_item",
-                "quantity": 1,
-                "included": true
-            },
-            {
-                "type": "carry_on",
-                "quantity": 1,
-                "included": false,
-                "price_usd": 45.0
-            },
-            {
-                "type": "checked",
-                "quantity": 1,
-                "included": false,
-                "price_usd": 55.0
-            }
-        ],
-        "fare_rules": {
-            "changeable": true,
-            "change_fee_usd": 99.0,
-            "refundable": false
-        },
-        "risk_flags": [],
-        "signals": {
-            "on_time_proxy": 0.68
-        },
-        "provider": {
-            "provider_name": "Kiwi",
-            "provider_id": "kwi_003",
-            "deeplink": "https://booking.kiwi.com/itin_003",
-            "last_updated": "2024-06-01T10:10:00",
-            "trust_score": 0.88,
-            "notes": []
-        }
-    },
-    {
-        "itinerary_id": "itin_004",
-        "legs": [
-            {
-                "leg_id": "leg_004_1",
-                "origin": {
-                    "code": "JFK",
-                    "name": "John F Kennedy Intl",
-                    "city": "New York",
-                    "country": "USA"
-                },
-                "destination": {
-                    "code": "LAX",
-                    "name": "Los Angeles Intl",
-                    "city": "Los Angeles",
-                    "country": "USA"
-                },
-                "departure_time": "2024-06-15T23:30:00",
-                "arrival_time": "2024-06-16T02:45:00",
-                "duration_minutes": 315,
-                "airline": "Delta Air Lines",
-                "airline_code": "DL",
-                "flight_number": "DL888",
+                "departure_time": "2026-07-20T18:00:00",
+                "arrival_time": "2026-07-21T06:00:00",
+                "duration_minutes": 420,
+                "airline": "British Airways",
+                "airline_code": "BA",
+                "flight_number": "BA112",
                 "cabin_class": "economy"
             }
         ],
         "layovers": [],
         "num_stops": 0,
-        "total_duration_minutes": 315,
+        "total_duration_minutes": 420,
         "is_direct": true,
         "price": {
-            "base_fare_usd": 195.0,
-            "taxes_usd": 38.0,
-            "fees_usd": 7.0,
-            "total_usd": 240.0,
-            "num_travelers": 1
-        },
-        "baggage": [
-            {
-                "type": "carry_on",
-                "quantity": 1,
-                "included": true
-            },
-            {
-                "type": "checked",
-                "quantity": 1,
-                "included": true
-            }
-        ],
-        "fare_rules": {
-            "changeable": true,
-            "change_fee_usd": 200.0,
-            "refundable": false
+            "base_fare_usd": 680.0,
+            "taxes_usd": 120.0,
+            "total_usd": 800.0,
+            "currency": "USD"
         },
         "risk_flags": [],
-        "signals": {
-            "on_time_proxy": 0.82
-        },
         "provider": {
             "provider_name": "Amadeus",
-            "provider_id": "amd_004",
-            "deeplink": "https://booking.amadeus.com/itin_004",
-            "last_updated": "2024-06-01T10:15:00",
-            "trust_score": 0.95,
-            "notes": []
+            "provider_id": "amd_lhr_1",
+            "deeplink": "https://example.com/book",
+            "last_updated": "2026-06-01T10:00:00",
+            "trust_score": 0.95
         }
     },
     {
-        "itinerary_id": "itin_005",
+        "itinerary_id": "itin_jfk_lhr_002",
         "legs": [
             {
-                "leg_id": "leg_005_1",
+                "leg_id": "leg_lhr_2a",
                 "origin": {
                     "code": "JFK",
                     "name": "John F Kennedy Intl",
@@ -354,93 +101,150 @@
                     "country": "USA"
                 },
                 "destination": {
-                    "code": "ATL",
-                    "name": "Hartsfield-Jackson Atlanta Intl",
-                    "city": "Atlanta",
-                    "country": "USA"
+                    "code": "DUB",
+                    "name": "Dublin Airport",
+                    "city": "Dublin",
+                    "country": "Ireland"
                 },
-                "departure_time": "2024-06-15T07:00:00",
-                "arrival_time": "2024-06-15T09:30:00",
-                "duration_minutes": 150,
-                "airline": "Delta Air Lines",
-                "airline_code": "DL",
-                "flight_number": "DL100",
+                "departure_time": "2026-07-20T17:00:00",
+                "arrival_time": "2026-07-21T05:00:00",
+                "duration_minutes": 360,
+                "airline": "Aer Lingus",
+                "airline_code": "EI",
+                "flight_number": "EI104",
                 "cabin_class": "economy"
             },
             {
-                "leg_id": "leg_005_2",
+                "leg_id": "leg_lhr_2b",
                 "origin": {
-                    "code": "ATL",
-                    "name": "Hartsfield-Jackson Atlanta Intl",
-                    "city": "Atlanta",
-                    "country": "USA"
+                    "code": "DUB",
+                    "name": "Dublin Airport",
+                    "city": "Dublin",
+                    "country": "Ireland"
                 },
                 "destination": {
-                    "code": "LAX",
-                    "name": "Los Angeles Intl",
-                    "city": "Los Angeles",
-                    "country": "USA"
+                    "code": "LHR",
+                    "name": "London Heathrow",
+                    "city": "London",
+                    "country": "UK"
                 },
-                "departure_time": "2024-06-15T10:15:00",
-                "arrival_time": "2024-06-15T12:00:00",
-                "duration_minutes": 285,
-                "airline": "Delta Air Lines",
-                "airline_code": "DL",
-                "flight_number": "DL200",
+                "departure_time": "2026-07-21T06:30:00",
+                "arrival_time": "2026-07-21T07:45:00",
+                "duration_minutes": 75,
+                "airline": "Aer Lingus",
+                "airline_code": "EI",
+                "flight_number": "EI154",
                 "cabin_class": "economy"
             }
         ],
         "layovers": [
             {
                 "airport": {
-                    "code": "ATL",
-                    "name": "Hartsfield-Jackson Atlanta Intl",
-                    "city": "Atlanta",
-                    "country": "USA"
+                    "code": "DUB",
+                    "name": "Dublin Airport",
+                    "city": "Dublin",
+                    "country": "Ireland"
                 },
-                "duration_minutes": 45,
+                "duration_minutes": 90,
                 "overnight": false,
                 "airport_change": false
             }
         ],
         "num_stops": 1,
-        "total_duration_minutes": 480,
+        "total_duration_minutes": 525,
         "is_direct": false,
         "price": {
-            "base_fare_usd": 210.0,
-            "taxes_usd": 40.0,
-            "fees_usd": 6.0,
-            "total_usd": 256.0,
-            "num_travelers": 1
-        },
-        "baggage": [
-            {
-                "type": "carry_on",
-                "quantity": 1,
-                "included": true
-            },
-            {
-                "type": "checked",
-                "quantity": 1,
-                "included": true
-            }
-        ],
-        "fare_rules": {
-            "changeable": true,
-            "change_fee_usd": 150.0,
-            "refundable": false
+            "base_fare_usd": 350.0,
+            "taxes_usd": 90.0,
+            "total_usd": 440.0,
+            "currency": "USD"
         },
         "risk_flags": [],
-        "signals": {
-            "on_time_proxy": 0.88
+        "provider": {
+            "provider_name": "Kiwi",
+            "provider_id": "kwi_lhr_2",
+            "deeplink": "https://example.com/book",
+            "last_updated": "2026-06-01T10:00:00",
+            "trust_score": 0.88
+        }
+    },
+    {
+        "itinerary_id": "itin_jfk_lhr_003_cheap",
+        "legs": [
+            {
+                "leg_id": "leg_lhr_3a",
+                "origin": {
+                    "code": "JFK",
+                    "name": "John F Kennedy Intl",
+                    "city": "New York",
+                    "country": "USA"
+                },
+                "destination": {
+                    "code": "LIS",
+                    "name": "Lisbon Portela",
+                    "city": "Lisbon",
+                    "country": "Portugal"
+                },
+                "departure_time": "2026-07-20T23:00:00",
+                "arrival_time": "2026-07-21T11:00:00",
+                "duration_minutes": 420,
+                "airline": "TAP Portugal",
+                "airline_code": "TP",
+                "flight_number": "TP202",
+                "cabin_class": "economy"
+            },
+            {
+                "leg_id": "leg_lhr_3b",
+                "origin": {
+                    "code": "LIS",
+                    "name": "Lisbon Portela",
+                    "city": "Lisbon",
+                    "country": "Portugal"
+                },
+                "destination": {
+                    "code": "LHR",
+                    "name": "London Heathrow",
+                    "city": "London",
+                    "country": "UK"
+                },
+                "departure_time": "2026-07-21T14:30:00",
+                "arrival_time": "2026-07-21T17:00:00",
+                "duration_minutes": 150,
+                "airline": "TAP Portugal",
+                "airline_code": "TP",
+                "flight_number": "TP354",
+                "cabin_class": "economy"
+            }
+        ],
+        "layovers": [
+            {
+                "airport": {
+                    "code": "LIS",
+                    "name": "Lisbon Portela",
+                    "city": "Lisbon",
+                    "country": "Portugal"
+                },
+                "duration_minutes": 210,
+                "overnight": false,
+                "airport_change": false
+            }
+        ],
+        "num_stops": 1,
+        "total_duration_minutes": 780,
+        "is_direct": false,
+        "price": {
+            "base_fare_usd": 250.0,
+            "taxes_usd": 50.0,
+            "total_usd": 300.0,
+            "currency": "USD"
         },
+        "risk_flags": [],
         "provider": {
             "provider_name": "Duffel",
-            "provider_id": "duf_005",
-            "deeplink": "https://booking.duffel.com/itin_005",
-            "last_updated": "2024-06-01T10:20:00",
-            "trust_score": 0.92,
-            "notes": []
+            "provider_id": "duf_lhr_3",
+            "deeplink": "https://example.com/book",
+            "last_updated": "2026-06-01T10:00:00",
+            "trust_score": 0.90
         }
     }
 ]
