@@ -20,12 +20,10 @@ DATABASE_URL = os.getenv(
 # For PostgreSQL in production, URL format:
 # postgresql+asyncpg://user:password@host:port/dbname
 
-# Create async engine
+# Create async engine (SQLite compatible - no pooling params)
 engine = create_async_engine(
     DATABASE_URL,
     echo=False,
-    pool_size=10,
-    max_overflow=20,
     pool_pre_ping=True,
 )
 
