@@ -4,7 +4,7 @@ import logging
 from datetime import datetime, timedelta
 from typing import List, Optional, Dict, Any
 
-from app.core.schema import Itinerary, SearchIntent, Leg, Airport, PriceBreakdown, Baggage, RiskFlag, CabinClass, ProviderMetadata
+from app.core.schema import Itinerary, SearchIntent, Leg, Airport, PriceBreakdown, Baggage, RiskFlag, CabinClass, ProviderMetadata, FareRules
 from app.core.cache import cache_manager
 
 logger = logging.getLogger(__name__)
@@ -176,7 +176,11 @@ class AmadeusProvider:
                 total_usd=price_total,
                 currency=offer["price"]["currency"]
             ),
-            fare_rules=None, # Populate default
+            fare_rules=FareRules(
+                changeable=True, # Default (safe)
+                refundable=False,
+                change_fee_usd=0.0
+            ),
             provider=ProviderMetadata(
                 provider_name="Amadeus",
                 provider_id=offer["id"],
