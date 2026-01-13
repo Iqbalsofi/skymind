@@ -14,6 +14,7 @@ from app.core.normalize import ItineraryNormalizer
 from app.core.dedupe import ItineraryDeduplicator
 from app.core.scoring import ItineraryRanker, get_category_winners
 from app.core.cache import cache_manager
+from app.core.price_prediction import PricePredictor
 from app.providers.amadeus import AmadeusProvider
 
 
@@ -28,6 +29,7 @@ class SearchOrchestrator:
         self.normalizer = ItineraryNormalizer()
         self.deduplicator = ItineraryDeduplicator()
         self.sample_data_path = Path(__file__).parent.parent.parent / "data" / "sample_itineraries.json"
+        self.predictor = PricePredictor()
         
         # Initialize providers (Phase 2)
         self.amadeus = AmadeusProvider()
@@ -61,6 +63,11 @@ class SearchOrchestrator:
         # Step 5: Rank
         ranker = ItineraryRanker(intent)
         ranked = ranker.rank_itineraries(deduplicated)
+        
+        # Step 5.5: Price Prediction (Phase 3)
+        # Apply prediction to top results (optimization)
+        for itin in ranked:
+            self.predictor.predict(itin, intent)
         
         # Step 6: Cache the results (5 minute TTL)
         await cache_manager.set_search_results(intent, ranked, ttl_seconds=300)

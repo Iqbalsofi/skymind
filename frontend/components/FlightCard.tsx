@@ -90,11 +90,25 @@ export default function FlightCard({ itinerary, rank }: FlightCardProps) {
                 {/* Price & Actions */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
                     <div>
+                        {/* Price Analysis Badge (Phase 3) */}
+                        {itinerary.price_analysis && (
+                            <div className={`mb-2 px-2 py-1 rounded inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider ${itinerary.price_analysis.advice === 'buy_now'
+                                    ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'
+                                    : itinerary.price_analysis.advice === 'wait'
+                                        ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300'
+                                        : 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300'
+                                }`}>
+                                <span>
+                                    {itinerary.price_analysis.advice === 'buy_now' ? '⚡ Buy Now' :
+                                        itinerary.price_analysis.advice === 'wait' ? '⏳ Wait' : '👀 Monitor'}
+                                </span>
+                            </div>
+                        )}
                         <div className="text-3xl font-bold text-gray-900 dark:text-white">
                             ${itinerary.price?.total_usd?.toFixed(2) || '0.00'}
                         </div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">
-                            {itinerary.price.currency}
+                            {itinerary.price.currency} • {itinerary.price_analysis?.factors?.[0] || 'Market Price'}
                         </div>
                     </div>
 

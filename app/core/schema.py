@@ -174,6 +174,15 @@ class ScoreBreakdown(BaseModel):
     )
 
 
+
+class PriceReasoning(BaseModel):
+    """Reasoning behind a price/recommendation"""
+    advice: str = Field(..., description="'buy_now', 'wait', or 'monitor'")
+    confidence_score: float = Field(..., ge=0.0, le=1.0)
+    predicted_change_usd: Optional[float] = None
+    factors: List[str] = Field(default_factory=list)
+
+
 class Itinerary(BaseModel):
     """
     Canonical itinerary schema - single source of truth
@@ -193,6 +202,7 @@ class Itinerary(BaseModel):
     
     # Pricing
     price: PriceBreakdown
+    price_analysis: Optional[PriceReasoning] = None
     
     # Terms
     baggage: List[Baggage] = Field(default_factory=list)
